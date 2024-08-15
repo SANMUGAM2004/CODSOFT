@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            min-height: 100vh;
+            background-image: url("./Assets/yard.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: paleturquoise;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav h1 {
+            font-size: 24px;
+            color: rebeccapurple;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .section:nth-of-type(2) {
+            animation-delay: 0.5s;
+        }
+
+        .section:nth-of-type(3) {
+            animation-delay: 1s;
+        }
+
+        .section:nth-of-type(4) {
+            animation-delay: 1.5s;
+        }
+
+        .article {
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+
+        .article h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .article p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .btn-home, .btn-about, .btn-services, .btn-contact {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-home {
+            background-color: #007BFF;
+        }
+
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-about {
+            background-color: #28a745;
+        }
+
+        .btn-about:hover {
+            background-color: #218838;
+        }
+
+        .btn-services {
+            background-color: #ffc107;
+        }
+
+        .btn-services:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-contact {
+            background-color: #17a2b8;
+        }
+
+        .btn-contact:hover {
+            background-color: #138496;
+        }
+
+        .about {
+            padding: 120px 60px;
+            background-size: cover;
+            text-align: center;
+            color: whitesmoke;
+            background-repeat: no-repeat;
+        }
+        .services{
+            padding: 200px  20px;
+            background-size: cover;
+            text-align: center;
+            color:black;
+            background-repeat: no-repeat;
+        }
+        .contact {
+            padding: 60px 20px;
+            background-size: cover;
+            text-align: center;
+            color: black;
+            background-repeat: no-repeat;
+        }
+
+        .about {
+            background-image: url("./Assets/img.jpg");
+        }
+
+        .services {
+            background-image: url("./Assets/img1.jpg");
+            font-size: large;
+        }
+
+        .contact {
+            background-image: url("./Assets/home.jpg");
+        }
+
+        .about h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+            color: rgb(38, 8, 236);
+        }
+
+        .services h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+            color: rgb(38, 8, 236);
+        }
+
+        .contact h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: rgb(38, 8, 236);
+        }
+
+        .about p {
+            font-size: 26px;
+            line-height: 1.6;
+        }
+
+        .contact p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .services p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .services-box {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-box {
+            max-width: 600px;
+            padding: 30px;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>Logo</h1>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="article">
+            <h1>YOUR DREAM HOUSE</h1>
+            <p>
+                Imagine a cozy, modern home nestled in the heart of nature, surrounded by lush greenery and vibrant flowers...
+                <br>
+                <a href="#about" class="btn-home">Explore Now</a>
+            </p>
+        </div>
+    </section>
+
+    <section id="about" class="about section">
+        <h1>About Us</h1>
+        <p>
+            Welcome to Dream Home Resort, where your dream home becomes a reality. With a passion for creating beautiful and functional living spaces, we specialize in finding and designing homes that reflect your unique style and needs. Our dedicated team of real estate experts and design professionals works tirelessly to provide personalized solutions and exceptional service, ensuring every detail aligns with your vision.
+            <br><br>
+            At Dream Home Resort, we believe that a home is more than just a place to live; it's where life’s most cherished moments are made. Whether you're buying your first home, upgrading to a larger space, or seeking expert advice on home design, we’re here to guide you through every step of the process.
+            <br><br>
+            Discover the difference with Dream Home Resort—where your ideal home journey begins.
+        </p>
+        <a href="#services" class="btn-about">Learn More</a>
+    </section>
+
+    <section id="services" class="services section">
+        <h1>Our Services</h1>
+        <div class="services-box">
+            <p>
+                At Dream Home Resort, we offer a comprehensive range of services designed to bring your dream home to life. Our expertise spans across various aspects of home creation and transformation, ensuring every step of your journey is handled with care and precision.
+                <br><br>
+                <h2>1. Real Estate Consulting:</h2> Our team provides expert advice and guidance to help you navigate the real estate market. Whether you're buying your first home, seeking investment properties, or looking to sell, we offer insights and strategies tailored to your goals.
+                <br><br>
+                <h2>2. Home Design and Renovation:</h2> From concept to completion, we specialize in designing and renovating homes that reflect your personal style. Our design professionals work closely with you to create spaces that are both beautiful and functional, enhancing your living experience.
+                <br><br>
+                <h2>3. Custom Home Building:</h2> For those looking to build from the ground up, we offer custom home building services. We collaborate with you to design a home that fits your vision, incorporating your preferences into every detail of the construction process.
+                <br><br>
+                <h2>4. Interior Design:</h2> Our interior design services focus on creating inviting and stylish spaces. We handle everything from selecting color schemes and furnishings to optimizing layouts, ensuring your home is a true reflection of your personality.
+                <br><br>
+                <h2>5. Property Management:</h2> For investors and homeowners alike, we offer property management services to maintain and enhance the value of your property. Our team handles everything from tenant relations to maintenance, allowing you to enjoy peace of mind.
+                <br><br>
+                Discover how Dream Home Resort can turn your vision into reality. Whether you're looking to find, design, or build your ideal home, we are dedicated to providing exceptional service and results.
+            </p>
+        </div>
+        <a href="#contact" class="btn-services">Get in Touch</a>
+    </section>
+
+    <section id="contact" class="contact section">
+        <div class="contact-box">
+            <h2>Contact Us</h2>
+            <h1>Instagram: dreamflowhome</h1>
+            <h1>Whatsapp: 9876543210</h1>
+        </div>
+        <a href="#home" class="btn-contact">Back to Top</a>
+    </section>
+</body>
+
+</html>
